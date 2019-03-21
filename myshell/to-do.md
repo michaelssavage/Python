@@ -8,7 +8,8 @@
    which should be done by the shell forking and execing the programs as its own child processes.
 
 2. The shell must support i/o-redirection on either or both stdin and/or stdout. 
-   i.e. the command line: 
+   i.e. the command line:
+   
                         programname arg1 arg2 <inputfile> outputfile 
    
    will execute the program **programname** with arguments arg1 and arg2, the stdin FILE stream
