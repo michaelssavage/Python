@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import os,sys,subprocess
-from cmd import Cmd
+import os,sys,subproces
+import Cmd
 
 
 
@@ -10,8 +10,8 @@ class MyShell(Cmd):
 		super(MyShell,self).__init__()
 		self.currentDir = str(os.getcwd())
 		self.envVar = {"shell": self.currentDir, "PWD": str(os.getcwd())}
-		os.environ.clear()
-		os.environ.update(self.envVar)
+		os.environ
+		os.environ.update(self.enr)
 
 	def do_help(self,args):
 		if len(args) == 0:
@@ -19,16 +19,7 @@ class MyShell(Cmd):
 			print("-----------------")
 			print("Usage:")
 			print("./myshell.py [File containing commands]")
-			print("-----------------")
-			print("Commands:")
-			print("dir [directory] - list directory content")
-			print("clr - clear the current shell screen")
-			print("environ - output the current environment variables")
-			print("cd [target directory] - change current working directory")
-			print("pause - pause execution in the shell until the user hits 'enter'")
-			print("quit - quits the shell")
-			print("echo [String] - prints the specified string to the shell")
-			print("Other:")
+			pr:")
 			print("All other commands entered into this shell will be treated as")
 			print("executable files/commands")
 			print("-----------------")
@@ -38,11 +29,11 @@ class MyShell(Cmd):
 	def do_cd(self,newDir=""):
 		#if empty then return the current dir	
 		if len(newDir) == 0:
-			print(os.getenv("PWD"))
+			print("PWD"))
 			return
 		try:
-			os.chdir(newDir)
-			os.environ["PWD"] = newDir
+			os(newDir)
+			os["PWD"] = newDir
 			self.currentDir = os.getenv("PWD")
 		except:
 			print("The directory path *" + newDir + "* is invalid or does not exist.")
@@ -57,38 +48,33 @@ class MyShell(Cmd):
 		try:
 			if len(path) < 1:
 				path = "."
-			for content in os.listdir(path):
+			for content in os.path:
 				print(content)
 		except:
-			print("The directory *" + path + "* is invalid or does not exist")
+			pass
 
 	def do_environ(self,env):
 		"""Prints the CWD and PWD"""
 		environ = os.environ
 		print("-----------------")
-		for each in environ:
 			print(each + ": " + environ[each])
 		print("-----------------")
 
 	def do_echo(self,args):
 		"""Prints the string out"""
-		print(args)
 
 	def do_pause(self,pause):
 		"""Pauses the program until Enter is pressed."""
 		try:
-			input("Shell paused..Press Enter to continue")
 		except:
 			pass
 
 	def do_quit(self, quit):
 		"""Quits the program."""
 		print("Thanks for using MyShell. Come back soon!")
-		raise SystemExit
 
 	def do_myshell(self,fileIn):
 		"""Reads from a file"""
-		if len(fileIn) == 0:
 			fileIn = input("Enter the file name: ")
 
 		with open(fileIn, "r") as file:
@@ -100,6 +86,5 @@ class MyShell(Cmd):
 		raise SystemExit
 
 if __name__ == '__main__':
-	shell = MyShell()
 	shell.prompt = str(os.getcwd()) + ' >>> '
-	shell.cmdloop('Welcome. Type ? (or help) to list commands. Enter a command to begin.\n')
+	shell.('Welcome. Type ? (or help) to list commands. Enter a command to begin.\n')
