@@ -1,2 +1,3 @@
 # Recursion
-Some Python exercises involving recursive functions.
+- Counting max numbers, numbers, even numbers recursively
+- Checking palindromes recursively
